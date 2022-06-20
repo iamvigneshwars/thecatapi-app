@@ -56,6 +56,10 @@ async function selectBreed(breed){
         // Update the image and description with selected breed.
         document.getElementById('image').src = image_data[0].url;
         document.getElementById('description').innerHTML = breed_data[0].description;
+        
+        // Clear previous data
+        document.getElementById('dis_ad').innerHTML = "";
+        document.getElementById('temperament').innerHTML = "";
 
         // Update facts with selected breed
         change_ratings('affection_level', breed_data[0].affection_level)
@@ -80,39 +84,39 @@ async function selectBreed(breed){
         update_temperament(breed_data[0].temperament.split(","));
 
         if (breed_data[0].experimental == 1){
-            document.getElementById('dis_ad').innerHTML = `<span class="badge rounded-pill badge-danger">Experimental</span>`
+            document.getElementById('dis_ad').innerHTML += `<span class="badge rounded-pill badge-danger">Experimental</span>`
         }
 
         if (breed_data[0].hairless == 1){
-            document.getElementById('dis_ad').innerHTML = `<span class="badge rounded-pill badge-danger">Hairless</span>`
+            document.getElementById('dis_ad').innerHTML += `<span class="badge rounded-pill badge-danger">Hairless</span>`
         }
 
         if (breed_data[0].hypoallergenic == 1){
-            document.getElementById('dis_ad').innerHTML = `<span class="badge rounded-pill badge-danger">Hypoallergenic</span>`;
+            document.getElementById('dis_ad').innerHTML += `<span class="badge rounded-pill badge-danger">Hypoallergenic</span>`;
         }
 
         if (breed_data[0].lap == 1){
-            document.getElementById('dis_ad').innerHTML = `<span class="badge rounded-pill badge-danger">Lap</span>`
+            document.getElementById('dis_ad').innerHTML += `<span class="badge rounded-pill badge-danger">Lap</span>`
         }
 
         if (breed_data[0].natural == 1){
-            document.getElementById('dis_ad').innerHTML = `<span class="badge rounded-pill badge-danger">Natural</span>`
+            document.getElementById('dis_ad').innerHTML += `<span class="badge rounded-pill badge-danger">Natural</span>`
         }
 
         if (breed_data[0].rare == 1){
-            document.getElementById('dis_ad').innerHTML = `<span class="badge rounded-pill badge-danger">Rare</span>`
+            document.getElementById('dis_ad').innerHTML += `<span class="badge rounded-pill badge-danger">Rare</span>`
         }
 
         if (breed_data[0].rex == 1){
-            document.getElementById('dis_ad').innerHTML = `<span class="badge rounded-pill badge-danger">Rex</span>`
+            document.getElementById('dis_ad').innerHTML += `<span class="badge rounded-pill badge-danger">Rex</span>`
         }
 
         if (breed_data[0].short_legs == 1){
-            document.getElementById('dis_ad').innerHTML = `<span class="badge rounded-pill badge-danger">Short Legs</span>`
+            document.getElementById('dis_ad').innerHTML += `<span class="badge rounded-pill badge-danger">Short Legs</span>`
         }
 
         if (breed_data[0].supressed_tail == 1){
-            document.getElementById('dis_ad').innerHTML = `<span class="badge rounded-pill badge-danger">Supressed Tail</span>`
+            document.getElementById('dis_ad').innerHTML += `<span class="badge rounded-pill badge-danger">Supressed Tail</span>`
         }
 
 
@@ -142,12 +146,7 @@ function change_ratings(quality, rating){
 }
 function update_temperament(data){
         for (let i = 0 ; i < data.length; i++){
-            if (i == 0){
-                document.getElementById("temperament").innerHTML = `<span class="badge rounded-pill badge-success">${data[i]}</span>`
-            } 
-            else {
-                document.getElementById("temperament").innerHTML += `<span class="badge rounded-pill badge-success">${data[i]}</span>`
-            }
+            document.getElementById("temperament").innerHTML += `<span class="badge rounded-pill badge-success">${data[i]}</span>`
         }
 }
 
