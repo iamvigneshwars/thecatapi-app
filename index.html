@@ -1,37 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="#">
-    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"> -->
-        <!-- Font Awesome -->
-    <link
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-    rel="stylesheet"
-    />
+    <link res="stylesheet" href="static/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
     <!-- Google Fonts -->
-    <link
-    href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
-    rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
     <!-- MDB -->
-    <link
-    href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.2.0/mdb.min.css"
-    rel="stylesheet"
-    />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.2.0/mdb.min.css" rel="stylesheet" />
     <title>Document</title>
+
+    <style>
+        .checked {
+            color: orange;
+        }
+    </style>
 </head>
+
 <body>
     <main class="container">
         <div class="bg-light p-5 rounded">
-                <div class="row">
-                    <!--Cat breeds-->
-                    <div class = "col-md-8">
-                        <!--Drop down and search bar-->
-                        <div class="d-flex flex-row">
-                                <div class="dropdown p-2">
+            <div class="row">
+                <!--Cat breeds-->
+                <div class="col-md-8">
+                    <!--Drop down and search bar-->
+                    <div class="d-flex flex-row">
+                        <!-- <div id ='drop' class="dropdown p-2">
                                     <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu2" data-mdb-toggle="dropdown" aria-expanded="false">
                                         Breeds
                                     </button>
@@ -40,52 +40,178 @@
                                     <li><button class="dropdown-item" type="button">Another action</button></li>
                                     <li><button class="dropdown-item" type="button">Something else here</button></li>
                                     </ul>
-                                </div>
+                                </div> -->
 
-                                <div class="input-group p-2">
-                                    <div class="form-outline flex-fill">
-                                    <input type="search" id="form1" class="form-control" />
-                                    <label class="form-label" for="form1">Search for breeds</label>
-                                    </div>
-                                    <button type="button" class="btn btn-primary">
-                                    <i class="fas fa-search"></i>
-                                    </button>
-                                </div>
+                        <div id='breeds' class="p-2">
+                            <select class="form-select" aria-label="Select Breed">
+                                <option>Choose a breed</option>
+                            </select>
                         </div>
-                        <br>
-                        <h2>
-                            Bengal
-                        </h2>
 
-                        <!--Render Image-->
-                        <img src="cat.png" class="img-fluid" alt="Wild Landscape" />
 
-                        <br>
-                        <br>
-                        <p>If you love a cat with an exotic look but without the size and danger of a wild cat, the Bengal was developed with you in mind. Created by crossing small Asian Leopard Cats with domestic cats, this large-boned, shorthaired cat stands out for his spotted or marbled coat of many colors.
-
-                        </p>
-
+                        <div class="input-group p-2">
+                            <div class="form-outline flex-fill">
+                                <input type="search" id="form1" class="form-control" />
+                                <label class="form-label" for="form1">Search for breeds</label>
+                            </div>
+                            <button type="button" class="btn btn-primary">
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </div>
                     </div>
+                    <br>
+                    <h2 id='cat_breed' class='text-center'>
+                        Bengal
+                    </h2>
 
-
-                    <!--Cat Facts-->
-                    <div class="col-md-4 text-center">
-                        <h3>
-                            <small class="text-muted">Did you know?</small>
-                          </h3>
+                    <div class="card">
+                        <img id="image" src="cat.png" class="card-img-top" alt="Fissure in Sandstone" />
+                        <div class="card-body">
+                            <p id="description" class="card-text">Some quick example text to build on the card title and
+                                make up the bulk of the card's content.</p>
+                            <hr>
+                            <div id="origin">
+                                <span class="badge badge-info">Origin <i class="flag flag-us"></i></span>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
+
+                <!--Cat Facts-->
+                <div class="col-md-4 text-center">
+                    <div class = 'card'>
+                        <div class = 'card-body'>
+                            <div id = 'temperament'>
+                            </div>
+                        <br><br>
+                        <small class="text-muted">Affection</small>
+                        <!-- <br> -->
+                        <div id = "affection_level">
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star"></span>
+                        </div>
+                        <!-- <br> -->
+                        <small class="text-muted">Adaptablity</small>
+                        <div id = "adaptability">
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star"></span>
+                        </div>
+                        <!-- <br> -->
+                        <small class="text-muted">Child Friendly</small>
+                        <div id = "child_friendly">
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star"></span>
+                        </div>
+                        <!-- <br> -->
+                        <small class="text-muted">Dog Friendly</small>
+                        <div id = "dog_friendly">
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star"></span>
+                        </div>
+
+                        <!-- <br> -->
+                        <small class="text-muted">Energy Level</small>
+                        <div id = "energy_level">
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star"></span>
+                        </div>
+
+                        <!-- <br> -->
+                        <small class="text-muted">Grooming</small>
+                        <div id = "grooming">
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star"></span>
+                        </div>
+
+                        <!-- <br> -->
+                        <small class="text-muted">Health Issues</small>
+                        <div id = "health_issues">
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star"></span>
+                        </div>
+
+                        <!-- <br> -->
+                        <small class="text-muted">Intelligence</small>
+                        <div id = "intelligence">
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star"></span>
+                        </div>
+
+                        <!-- <br> -->
+                        <small class="text-muted">Shedding Level</small>
+                        <div id = "shedding_level">
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star"></span>
+                        </div>
+
+                        <!-- <br> -->
+                        <small class="text-muted">Stranger Friendly</small>
+                        <div id = "stranger_friendly">
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star"></span>
+                        </div>
+
+                        <!-- <br> -->
+                        <small class="text-muted">Social Needs</small>
+                        <div id = "social_needs">
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star"></span>
+                        </div>
+
+                        <!-- <br> -->
+                        <small class="text-muted">Vocalisation</small>
+                        <div id = "vocalisation">
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star"></span>
+                        </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </main>
-        
-    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script> -->
+
+        </div>
+    </main>
+
     <!-- MDB -->
-    <script
-    type="text/javascript"
-    src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.2.0/mdb.min.js"
-    ></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.2.0/mdb.min.js"></script>
     <script src="static/js/script.js"></script>
 </body>
+
 </html>
