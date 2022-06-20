@@ -77,10 +77,10 @@ async function selectBreed(breed){
             change_ratings('social_needs', breed_data[0].social_needs)
             change_ratings('vocalisation', breed_data[0].vocalisation)
 
-            document.getElementById('origin').innerHTML =  `<span class="badge badge-info">Origin <i class="flag flag-${breed_data[0].country_code.toLowerCase()}"></i></span>`
-            document.getElementById('life').innerHTML = `<span class="badge badge-info position-relative">Life Span : ${breed_data[0].life_span}</span>`
-            document.getElementById('weight').innerHTML = `<span class="badge badge-info position-relative">Metric Weight : ${breed_data[0].weight.metric}</span>`
-            document.getElementById('wiki_url').href = breed_data[0].wikipedia_url
+            document.getElementById('origin').innerHTML =  `<span class="badge badge-info">Origin : ${breed_data[0].origin} <i class="flag flag-${breed_data[0].country_code.toLowerCase()}"></i></span>`
+            console.log(breed_data[0])
+            document.getElementById('life').innerHTML = `<span class="badge badge-info position-relative">Life Span : ${breed_data[0].life_span} Years</span>`
+            document.getElementById('weight').innerHTML = `<span class="badge badge-info position-relative">Metric Weight : ${breed_data[0].weight.metric} Kg</span>`
 
             // Update the temperaments with selected breed.
             update_temperament(breed_data[0].temperament.split(","));
